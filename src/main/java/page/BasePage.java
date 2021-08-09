@@ -10,7 +10,9 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Keyboard;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -72,5 +74,15 @@ public abstract class BasePage implements IPageObject {
         waitForElementToBeVisible(webElement);
         webElement.clear();
         webElement.sendKeys(message);
+    }
+
+    protected void sendKeys(WebElement webElement, Keys key) {
+        waitForElementToBeVisible(webElement);
+        webElement.clear();
+        webElement.sendKeys(key);
+    }
+
+    protected void sendKeys(Keyboard keyboard, Keys key) {
+        keyboard.sendKeys(key);
     }
 }

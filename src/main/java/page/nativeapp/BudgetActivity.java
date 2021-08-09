@@ -37,6 +37,7 @@ public class BudgetActivity extends BasePage {
         }
 
         public void activityTitleIsCorrect() {
+            log.info("Check that activity title is equal to {}", NativeApp.BUDGET_ACTIVITY_TITLE);
             Assertions.assertThat(budgetActivity.getActivityTitle().getText()).isEqualTo(NativeApp.BUDGET_ACTIVITY_TITLE);
         }
     }
