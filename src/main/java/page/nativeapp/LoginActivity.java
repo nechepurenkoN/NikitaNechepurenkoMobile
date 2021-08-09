@@ -3,13 +3,11 @@ package page.nativeapp;
 import dto.LoginData;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import page.BasePage;
 
 @Slf4j

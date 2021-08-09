@@ -13,9 +13,11 @@ public class NativePageObject {
 
     private final LoginActivity loginActivity;
     private final RegisterActivity registerActivity;
+    private final BudgetActivity budgetActivity;
 
     public NativePageObject(AppiumDriver<WebElement> appiumDriver) {
         loginActivity = new LoginActivity(appiumDriver);
         registerActivity = new RegisterActivity(appiumDriver);
+        budgetActivity = new BudgetActivity(appiumDriver);
     }
 }
