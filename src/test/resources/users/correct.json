@@ -1,14 +1,7 @@
 {
-    "registerData": {
-        "email": "a@a.a",
-        "username": "aba",
-        "password": "12345678",
-        "passwordConfirmed": "12345678",
-        "isAgreed": true
-    },
-
-    "loginData": {
-        "emailUsername": "a@a.a",
-        "password": "12345678"
-    }
+    "email": "a@a.a",
+    "username": "aba",
+    "password": "12345678",
+    "passwordConfirmed": "12345678",
+    "isAgreed": true
 }

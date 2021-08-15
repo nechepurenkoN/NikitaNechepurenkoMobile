@@ -37,7 +37,7 @@ public class LoginActivity extends BasePage {
         registerButton.click();
     }
 
-    public void signIn() {
+    protected void signIn() {
         log.info("Click on login button");
         signInButton.click();
     }

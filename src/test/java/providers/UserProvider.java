@@ -16,21 +16,16 @@ public class UserProvider {
     @SneakyThrows
     @DataProvider
     public Object[][] validRegisterAndLoginData() {
-        UserJsonScheme data = new Gson().fromJson(
+        RegisterData registerData = new Gson().fromJson(
             FileUtils.readFileToString(
                 new File(Objects.requireNonNull(this.getClass().getResource(CORRECT_USER_PATH)).getFile()),
                 StandardCharsets.UTF_8
             ),
-            UserJsonScheme.class
+            RegisterData.class
         );
 
         return new Object[][] {
-            {data.registerData, data.loginData}
+            {registerData, new LoginData(registerData.getEmail(), registerData.getPassword())}
         };
-    }
-
-    protected static class UserJsonScheme {
-        public RegisterData registerData;
-        public LoginData loginData;
     }
 }
