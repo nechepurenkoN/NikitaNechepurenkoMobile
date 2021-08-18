@@ -21,7 +21,7 @@ public abstract class BaseTest {
 
     @Parameters({"platformName", "appType", "deviceName"})
     @BeforeSuite(alwaysRun = true)
-    public void setUpSuite(String platformName, String appType, String deviceName) {
+    public void setUpSuite(String platformName, String appType, @Optional("") String deviceName) {
         log.info("Running suite with {} appType on device: {} on platform: {}", appType, deviceName, platformName);
     }
 

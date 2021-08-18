@@ -47,8 +47,11 @@ public class WebPageObject extends BasePage {
 
     public WebPageObject performSearch() {
         log.info("Performing search");
-        sendKeys(driver.getKeyboard(), Keys.ENTER);
-        driver.hideKeyboard();
+        try {
+            searchInput.submit();
+        } catch (Exception e) {
+            searchInput.sendKeys(Keys.ENTER);
+        }
         return this;
     }
 
@@ -61,11 +64,10 @@ public class WebPageObject extends BasePage {
 
         public void resultTitlesTextContains(String value) {
             List<String> linkTexts = webPageObject.resultTitles.stream()
-                                                              .map(WebElement::getText)
-                                                              .collect(Collectors.toList());
+                                                               .map(WebElement::getText)
+                                                               .collect(Collectors.toList());
             log.info("Check that {} is in results", value);
             Assertions.assertThat(linkTexts).anyMatch(text -> text.contains(value));
         }
-
     }
 }

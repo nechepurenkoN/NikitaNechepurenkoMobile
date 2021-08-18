@@ -3,6 +3,7 @@ package page.nativeapp;
 import constants.NativeApp;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
@@ -17,6 +18,7 @@ import page.BasePage;
 public class BudgetActivity extends BasePage {
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Budget']")
     WebElement activityTitle;
 
     public BudgetActivity(AppiumDriver<WebElement> driver) {
@@ -38,7 +40,7 @@ public class BudgetActivity extends BasePage {
 
         public void activityTitleIsCorrect() {
             log.info("Check that activity title is equal to {}", NativeApp.BUDGET_ACTIVITY_TITLE);
-            Assertions.assertThat(budgetActivity.getActivityTitle().getText()).isEqualTo(NativeApp.BUDGET_ACTIVITY_TITLE);
+            Assertions.assertThat(budgetActivity.getActivityTitle().getText()).contains(NativeApp.BUDGET_ACTIVITY_TITLE);
         }
     }
 }
