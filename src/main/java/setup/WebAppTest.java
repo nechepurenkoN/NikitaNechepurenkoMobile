@@ -12,11 +12,20 @@ public class WebAppTest extends BaseTest {
 
     protected WebPageObject webApp;
 
-    @Parameters({"platformName", "appType", "deviceName", "browserName", "app"})
+    @Parameters({"platformName", "appType", "deviceName", "udid", "browserName", "app", "appPackage", "appActivity", "bundleId"})
     @BeforeMethod(alwaysRun = true)
-    public void setUp(String platformName, String appType, String deviceName, @Optional("") String browserName,
-                      @Optional("") String app) {
-        driver = DriverFactory.createDriver(platformName, appType, deviceName, browserName, app);
+    public void setUp(String platformName,
+                      String appType,
+                      @Optional("") String deviceName,
+                      @Optional("") String udid,
+                      @Optional("") String browserName,
+                      @Optional("") String app,
+                      @Optional("") String appPackage,
+                      @Optional("") String appActivity,
+                      @Optional("") String bundleId
+    ) {
+        driver = DriverFactory
+            .createDriver(platformName, appType, deviceName, udid, browserName, app, appPackage, appActivity, bundleId);
         log.info("New appium driver session has been created");
         webApp = new WebPageObject(driver);
     }
